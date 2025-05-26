@@ -698,11 +698,6 @@ FAngelscriptBinds::FBind Bind_ImGui_Window_Utilities(FAngelscriptBinds::EOrder::
 	{
 		return ImGui::GetWindowHeight();
 	});
-	FAngelscriptBinds::BindGlobalFunction("float32 GetWindowContentRegionWidth()",
-	[]() -> float
-	{
-		return ImGui::GetWindowContentRegionWidth();
-	});
 });
 
 FAngelscriptBinds::FBind Bind_ImGui_Window_Manipulation(FAngelscriptBinds::EOrder::Late, []
@@ -1661,7 +1656,7 @@ FAngelscriptBinds::FBind Bind_ImGui_Tooltips(FAngelscriptBinds::EOrder::Late, []
 {
 	FAngelscriptBinds::FNamespace ImGuiNamespace("ImGui");
 	FAngelscriptBinds::BindGlobalFunction("bool BeginTooltip()",
-	[]() -> void
+	[]() -> bool
 	{
 		return ImGui::BeginTooltip();
 	});
