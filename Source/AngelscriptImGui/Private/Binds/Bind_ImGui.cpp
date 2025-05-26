@@ -623,6 +623,11 @@ FAngelscriptBinds::FBind Bind_ImGuiModule(FAngelscriptBinds::EOrder::Late, []
 	{
 		FModuleManager::GetModuleChecked<FImGuiModule>("ImGui").GetProperties().SetKeyboardInputShared(bEnabled);
 	});
+	FAngelscriptBinds::BindGlobalFunction("void SetMouseInputShared(bool bEnabled)",
+	[](const bool bEnabled) -> void
+	{
+		FModuleManager::GetModuleChecked<FImGuiModule>("ImGui").GetProperties().SetMouseInputShared(bEnabled);
+	});
 });
 
 FAngelscriptBinds::FBind Bind_ImGui_Windows(FAngelscriptBinds::EOrder::Late, []
@@ -697,11 +702,6 @@ FAngelscriptBinds::FBind Bind_ImGui_Window_Utilities(FAngelscriptBinds::EOrder::
 	[]() -> float
 	{
 		return ImGui::GetWindowHeight();
-	});
-	FAngelscriptBinds::BindGlobalFunction("float32 GetWindowContentRegionWidth()",
-	[]() -> float
-	{
-		return ImGui::GetWindowContentRegionWidth();
 	});
 });
 
@@ -1661,7 +1661,7 @@ FAngelscriptBinds::FBind Bind_ImGui_Tooltips(FAngelscriptBinds::EOrder::Late, []
 {
 	FAngelscriptBinds::FNamespace ImGuiNamespace("ImGui");
 	FAngelscriptBinds::BindGlobalFunction("bool BeginTooltip()",
-	[]() -> void
+	[]() -> bool
 	{
 		return ImGui::BeginTooltip();
 	});
