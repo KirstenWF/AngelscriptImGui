@@ -9,7 +9,7 @@
 	"CreatedByURL": "https://github.com/EnvarStudio/AngelscriptImGui",
 	"DocsURL": "",
 	"MarketplaceURL": "",
-	"EnabledByDefault": false,
+	"EnabledByDefault": true,
 	"CanContainContent": false,
 	"IsBetaVersion": false,
 	"Installed": false,
