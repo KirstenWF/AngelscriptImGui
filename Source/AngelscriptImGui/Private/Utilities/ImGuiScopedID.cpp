@@ -1,4 +1,4 @@
-﻿// Copyright Envar Games AB. All Rights Reserved.
+// Copyright Envar Games AB. All Rights Reserved.
 
 #include "ImGuiScopedID.h"
 
@@ -6,7 +6,7 @@
 
 FImGuiScopedID::FImGuiScopedID(const FString& StringID)
 {
-	ImGui::PushID(ToImGui(StringID));
+	ImGui::PushID(StringCast<ANSICHAR>(*StringID).Get());
 	bHasPushedID = true;
 }
 

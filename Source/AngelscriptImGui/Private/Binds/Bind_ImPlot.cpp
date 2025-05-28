@@ -242,7 +242,7 @@ FAngelscriptBinds::FBind Bind_ImGui_Plot(FAngelscriptBinds::EOrder::Late, []
 	FAngelscriptBinds::BindGlobalFunction("bool BeginPlot(const FString& Title, const FVector2f& Size = FVector2f(-1, 0), EImPlotFlags Flags = EImPlotFlags::None)",
 	[](const FString& Title, const FVector2f& Size, const ImPlotFlags Flags) -> bool
 	{
-		return ImPlot::BeginPlot(ToImGui(Title), ToImGui(Size), Flags);
+		return ImPlot::BeginPlot(StringCast<ANSICHAR>(*Title).Get(), ToImGui(Size), Flags);
 	});
 	FAngelscriptBinds::BindGlobalFunction("void EndPlot()",
 	[]() -> void
@@ -257,12 +257,12 @@ FAngelscriptBinds::FBind Bind_ImGui_SubPlot(FAngelscriptBinds::EOrder::Late, []
 	FAngelscriptBinds::BindGlobalFunction("bool BeginSubplots(const FString& Title, int32 Rows, int32 Columns, const FVector2f& Size, EImPlotSubplotFlags Flags = EImPlotSubplotFlags::None)",
 	[](const FString& Title, const int32 Rows, const int32 Columns, const FVector2f& Size, const ImPlotSubplotFlags Flags) -> bool
 	{
-		return ImPlot::BeginSubplots(ToImGui(Title), Rows, Columns, ToImGui(Size), Flags);
+		return ImPlot::BeginSubplots(StringCast<ANSICHAR>(*Title).Get(), Rows, Columns, ToImGui(Size), Flags);
 	});
 	FAngelscriptBinds::BindGlobalFunction("bool BeginSubplots(const FString& Title, TArray<float32>& RowRatios, TArray<float32>& ColumnRatios, const FVector2f& Size, EImPlotSubplotFlags Flags = EImPlotSubplotFlags::None)",
 	[](const FString& Title, TArray<float>& RowRatios, TArray<float>& ColumnRatios, const FVector2f& Size, const ImPlotSubplotFlags Flags) -> bool
 	{
-		return ImPlot::BeginSubplots(ToImGui(Title), RowRatios.Num(), ColumnRatios.Num(), ToImGui(Size), Flags, RowRatios.GetData(), ColumnRatios.GetData());
+		return ImPlot::BeginSubplots(StringCast<ANSICHAR>(*Title).Get(), RowRatios.Num(), ColumnRatios.Num(), ToImGui(Size), Flags, RowRatios.GetData(), ColumnRatios.GetData());
 	});
 	FAngelscriptBinds::BindGlobalFunction("void EndSubplots()",
 	[]() -> void
@@ -277,7 +277,7 @@ FAngelscriptBinds::FBind Bind_ImGui_Setup(FAngelscriptBinds::EOrder::Late, []
 	FAngelscriptBinds::BindGlobalFunction("void SetupAxis(EImAxis Axis, const FString& Label = FString(), EImPlotAxisFlags Flags = EImPlotAxisFlags::None)",
 	[](const ImAxis Axis, const FString& Label, const ImPlotAxisFlags Flags)
 	{
-		ImPlot::SetupAxis(Axis, Label.IsEmpty() ? nullptr : ToImGui(Label), Flags);
+		ImPlot::SetupAxis(Axis, Label.IsEmpty() ? nullptr : StringCast<ANSICHAR>(*Label).Get(), Flags);
 	});
 	FAngelscriptBinds::BindGlobalFunction("void SetupAxisLimits(EImAxis Axis, float64 VMin, float64 VMax, EImPlotCond Condition = EImPlotCond::Once)",
 	[](const ImAxis Axis, const double VMin, const double VMax, const ImPlotCond Condition)
@@ -292,7 +292,7 @@ FAngelscriptBinds::FBind Bind_ImGui_Setup(FAngelscriptBinds::EOrder::Late, []
 	FAngelscriptBinds::BindGlobalFunction("void SetupAxisFormat(EImAxis Axis, const FString& Format)",
 	[](const ImAxis Axis, const FString& Format)
 	{
-		ImPlot::SetupAxisFormat(Axis, ToImGui(Format));
+		ImPlot::SetupAxisFormat(Axis, StringCast<ANSICHAR>(*Format).Get());
 	});
 	FAngelscriptBinds::BindGlobalFunction("void SetupAxisTicks(EImAxis Axis, const TArray<float64>& Values, bool KeepDefault = false)",
 	[](const ImAxis Axis, const TArray<double>& Values, const bool KeepDefault)
@@ -322,7 +322,7 @@ FAngelscriptBinds::FBind Bind_ImGui_Setup(FAngelscriptBinds::EOrder::Late, []
 	FAngelscriptBinds::BindGlobalFunction("void SetupAxes(const FString& XLabel, const FString& YLabel, EImPlotAxisFlags XFlags = EImPlotAxisFlags::None, EImPlotAxisFlags YFlags = EImPlotAxisFlags::None)",
 	[](const FString& XLabel, const FString& YLabel, const ImPlotAxisFlags XFlags, const ImPlotAxisFlags YFlags)
 	{
-		ImPlot::SetupAxes(ToImGui(XLabel), ToImGui(YLabel), XFlags, YFlags);
+		ImPlot::SetupAxes(StringCast<ANSICHAR>(*XLabel).Get(), StringCast<ANSICHAR>(*YLabel).Get(), XFlags, YFlags);
 	});
 	FAngelscriptBinds::BindGlobalFunction("void SetupAxesLimits(float64 XMin, float64 XMax, float64 YMin, float64 YMax, EImPlotCond Condition = EImPlotCond::Once)",
 	[](const double XMin, const double XMax, const double YMin, const double YMax, const ImPlotCond Condition)
@@ -379,7 +379,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotLine(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2f));
+			ImPlot::PlotLine(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2f));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotLine(const FString& Label, const TArray<FVector2D> Values)",
@@ -387,7 +387,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotLine(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2D));
+			ImPlot::PlotLine(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2D));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotScatter(const FString& Label, const TArray<FVector2f> Values)",
@@ -395,7 +395,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotScatter(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2f));
+			ImPlot::PlotScatter(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2f));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotScatter(const FString& Label, const TArray<FVector2D> Values)",
@@ -403,7 +403,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotScatter(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2D));
+			ImPlot::PlotScatter(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2D));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotStairs(const FString& Label, const TArray<FVector2f> Values)",
@@ -411,7 +411,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotStairs(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2f));
+			ImPlot::PlotStairs(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2f));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotStairs(const FString& Label, const TArray<FVector2D> Values)",
@@ -419,7 +419,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotStairs(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2D));
+			ImPlot::PlotStairs(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2D));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotShaded(const FString& Label, const TArray<FVector2f> Values, float64 YReference = 0)",
@@ -427,7 +427,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotShaded(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), YReference, 0, sizeof(FVector2f));
+			ImPlot::PlotShaded(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), YReference, 0, sizeof(FVector2f));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotShaded(const FString& Label, const TArray<FVector2D> Values, float64 YReference = 0)",
@@ -435,7 +435,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotShaded(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), YReference, 0, sizeof(FVector2D));
+			ImPlot::PlotShaded(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), YReference, 0, sizeof(FVector2D));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotBars(const FString& Label, const TArray<FVector2f> Values, float64 BarWidth = 0.67)",
@@ -443,7 +443,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotBars(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), BarWidth, 0, sizeof(FVector2f));
+			ImPlot::PlotBars(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), BarWidth, 0, sizeof(FVector2f));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotBars(const FString& Label, const TArray<FVector2D> Values, float64 BarWidth = 0.67)",
@@ -451,7 +451,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotBars(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), BarWidth, 0, sizeof(FVector2D));
+			ImPlot::PlotBars(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), BarWidth, 0, sizeof(FVector2D));
 		}
 	});
 	// void PlotBarGroups(const char* const label_ids[], const T* values, int item_count, int group_count, double group_width=0.67, double x0=0, ImPlotBarGroupsFlags flags=ImPlotBarGroupsFlags_None);
@@ -465,7 +465,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotStems(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), BarHeight, 0, sizeof(FVector2f));
+			ImPlot::PlotStems(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), BarHeight, 0, sizeof(FVector2f));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotStems(const FString& Label, const TArray<FVector2D> Values, float64 BarHeight = 0.67)",
@@ -473,7 +473,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotStems(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), BarHeight, 0, sizeof(FVector2D));
+			ImPlot::PlotStems(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), BarHeight, 0, sizeof(FVector2D));
 		}
 	});
 	// void PlotPieChart(const char* const label_ids[], const T* values, int count, double x, double y, double radius, bool normalize=false, const char* label_fmt="%.1f", double angle0=90);
@@ -485,7 +485,7 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotDigital(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2f));
+			ImPlot::PlotDigital(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2f));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotDigital(const FString& Label, const TArray<FVector2D> Values)",
@@ -493,17 +493,17 @@ FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBinds::EOrder::Late, [
 	{
 		if (!Values.IsEmpty())
 		{
-			ImPlot::PlotDigital(ToImGui(Label), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2D));
+			ImPlot::PlotDigital(StringCast<ANSICHAR>(*Label).Get(), &Values[0].X, &Values[0].Y, Values.Num(), 0, sizeof(FVector2D));
 		}
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotText(const FString& Text, float64 X, float64 Y, const FVector2D& Offset=FVector2D(0,0), EImPlotTextFlags Flags=0)",
 	[](const FString& Text, const double X, const double Y, const FVector2f& Offset = FVector2f(0, 0), ImPlotTextFlags Flags = 0)
 	{
-		ImPlot::PlotText(ToImGui(Text), X, Y, ToImGui(Offset), Flags);
+		ImPlot::PlotText(StringCast<ANSICHAR>(*Text).Get(), X, Y, ToImGui(Offset), Flags);
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotDummy(const FString& Label)",
 	[](const FString& Label)
 	{
-		ImPlot::PlotDummy(ToImGui(Label));
+		ImPlot::PlotDummy(StringCast<ANSICHAR>(*Label).Get());
 	});
 });

@@ -1,4 +1,4 @@
-﻿// Copyright Envar Games AB. All Rights Reserved.
+// Copyright Envar Games AB. All Rights Reserved.
 
 #pragma once
 
@@ -34,11 +34,6 @@ FORCEINLINE ImVec4 ToImGui(const FVector4& Vector)
 FORCEINLINE ImVec4 ToImGui(const FColor& Color)
 {
 	return ToImGui(FVector4(Color));
-}
-
-FORCEINLINE const char* ToImGui(const FString& String)
-{
-	return StringCast<ANSICHAR>(*String).Get();
 }
 
 struct FImGuiEnumType final : public TAngelscriptPODType<int32>
