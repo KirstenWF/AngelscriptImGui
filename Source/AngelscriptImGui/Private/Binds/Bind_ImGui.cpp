@@ -2017,4 +2017,60 @@ FAngelscriptBinds::FBind Bind_ImGui_Widget_InputUtilitiesMouse(FAngelscriptBinds
 	[]() -> bool {
 		return ImGui::GetIO().WantCaptureKeyboard;
 	});
+	FAngelscriptBinds::BindGlobalFunction("void ShowAboutWindow(bool& bOpen)",
+	[](bool& bOpen) -> void {
+		ImGui::ShowAboutWindow(&bOpen);
+	});
+	FAngelscriptBinds::BindGlobalFunction("void ShowDemoWindow(bool& bOpen)",
+	[](bool& bOpen) -> void {
+		ImGui::ShowDemoWindow(&bOpen);
+	});
+	FAngelscriptBinds::BindGlobalFunction("void ShowUserGuide()",
+	[]() -> void {
+		ImGui::ShowUserGuide();
+	});	
+});
+
+FAngelscriptBinds::FBind Bind_ImGui_ColorPicker(FAngelscriptBinds::EOrder::Late, []
+{
+	FAngelscriptBinds::FNamespace ImGuiNamespace("ImGui");
+	FAngelscriptBinds::BindGlobalFunction("bool ColorPicker3(const FString& Label, FVector3f& Col, EImGuiColorEditFlags Flags = EImGuiColorEditFlags::None)",
+	[](const FString& Label, FVector3f& Col, ImGuiColorEditFlags Flags) -> bool
+	{
+		float Color[3] = { Col.X, Col.Y, Col.Z };
+		if (ImGui::ColorPicker3(StringCast<ANSICHAR>(*Label).Get(), Color, Flags))
+		{
+			Col = FVector3f(Color[0], Color[1], Color[2]);
+			return true;
+		}
+		return false;
+	});	
+	FAngelscriptBinds::BindGlobalFunction("bool ColorPicker4(const FString& Label, FVector4& Col, EImGuiColorEditFlags Flags = EImGuiColorEditFlags::None)",
+	[](const FString& Label, FVector4& Col, ImGuiColorEditFlags Flags) -> bool
+	{
+		float Color[4] = { Col.X, Col.Y, Col.Z, Col.W };
+		if (ImGui::ColorPicker4(StringCast<ANSICHAR>(*Label).Get(), Color, Flags))
+		{
+			Col = FVector4(Color[0], Color[1], Color[2], Color[3]);
+			return true;
+		}
+		return false;
+	});
+	FAngelscriptBinds::BindGlobalFunction("bool ColorButton3(const FString& Label, FVector3f& Col, EImGuiColorEditFlags Flags = EImGuiColorEditFlags::None)",
+	[](const FString& Text, FVector3f& Col, ImGuiColorEditFlags Flags) -> bool
+	{
+		FVector4 Color = FVector4(Col.X, Col.Y, Col.Z, 0.f);
+		Flags |= ImGuiColorEditFlags_NoAlpha;
+		if (ImGui::ColorButton(StringCast<ANSICHAR>(*Text).Get(), ToImGui(Color), Flags))
+		{
+			Col = FVector3f(Color[0], Color[1], Color[2]);
+			return true;
+		}
+		return false;
+	});
+	FAngelscriptBinds::BindGlobalFunction("bool ColorButton4(const FString& Label, FVector4& Col, EImGuiColorEditFlags Flags = EImGuiColorEditFlags::None)",
+	[](const FString& Text, FVector4& Col, ImGuiColorEditFlags Flags) -> bool
+	{
+		return ImGui::ColorButton(StringCast<ANSICHAR>(*Text).Get(), ToImGui(Col), Flags);
+	});
 });
