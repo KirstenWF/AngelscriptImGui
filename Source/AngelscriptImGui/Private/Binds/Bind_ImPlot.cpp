@@ -22,215 +22,218 @@ AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImAxis(FAngelscriptBinds::EOrd
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotFlags(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotFlags, "Options for plots (see BeginPlot).");
-	IMGUI_ENUM_VALUE(ImPlotFlags, None,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, NoTitle,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, NoLegend,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, NoMouseText,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, NoInputs,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, NoMenus,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, NoBoxSelect,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, NoChild,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, NoFrame,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, Equal,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, Crosshairs,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, AntiAliased,);
-	IMGUI_ENUM_VALUE(ImPlotFlags, CanvasOnly,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, None,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, NoTitle,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, NoLegend,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, NoMouseText,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, NoInputs,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, NoMenus,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, NoBoxSelect,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, NoFrame,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, Equal,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, Crosshairs,);
+    IMGUI_ENUM_VALUE(ImPlotFlags, CanvasOnly,);
 });
 
-AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotAxisFlags(FAngelscriptBinds::EOrder::Early, []
+FAngelscriptBinds::FBind Bind_ImPlotTextFlags(FAngelscriptBinds::EOrder::Early, []
+{
+	IMGUI_ENUM(ImPlotTextFlags, "Options for PlotText.");
+	IMGUI_ENUM_VALUE(ImPlotTextFlags, None, );
+	IMGUI_ENUM_VALUE(ImPlotTextFlags, Vertical, );
+});
+
+FAngelscriptBinds::FBind Bind_ImPlotAxisFlags(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotAxisFlags, "Options for plot axes (see SetupAxis).");
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, None,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoLabel,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoGridLines,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoTickMarks,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoTickLabels,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoInitialFit,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoMenus,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, Opposite,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, Foreground,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, LogScale,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, Time,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, Invert,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, AutoFit,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, RangeFit,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, LockMin,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, LockMax,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, Lock,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoDecorations,);
-	IMGUI_ENUM_VALUE(ImPlotAxisFlags, AuxDefault,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, None,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoLabel,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoGridLines,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoTickMarks,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoTickLabels,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoInitialFit,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoMenus,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, Opposite,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, Foreground,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, Invert,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, AutoFit,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, RangeFit,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, LockMin,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, LockMax,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, Lock,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, NoDecorations,);
+    IMGUI_ENUM_VALUE(ImPlotAxisFlags, AuxDefault,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotSubplotFlags(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotSubplotFlags, "Options for subplots (see BeginSubplot).");
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, None,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoTitle,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoLegend,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoMenus,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoResize,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoAlign,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, ShareItems,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, LinkRows,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, LinkCols,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, LinkAllX,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, LinkAllY,);
-	IMGUI_ENUM_VALUE(ImPlotSubplotFlags, ColMajor,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, None,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoTitle,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoLegend,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoMenus,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoResize,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, NoAlign,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, ShareItems,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, LinkRows,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, LinkCols,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, LinkAllX,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, LinkAllY,);
+    IMGUI_ENUM_VALUE(ImPlotSubplotFlags, ColMajor,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotLegendFlags(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotLegendFlags, "Options for legends (see SetupLegend)");
-	IMGUI_ENUM_VALUE(ImPlotLegendFlags, None,);
-	IMGUI_ENUM_VALUE(ImPlotLegendFlags, NoButtons,);
-	IMGUI_ENUM_VALUE(ImPlotLegendFlags, NoHighlightItem,);
-	IMGUI_ENUM_VALUE(ImPlotLegendFlags, NoHighlightAxis,);
-	IMGUI_ENUM_VALUE(ImPlotLegendFlags, NoMenus,);
-	IMGUI_ENUM_VALUE(ImPlotLegendFlags, Outside,);
-	IMGUI_ENUM_VALUE(ImPlotLegendFlags, Horizontal,);
+    IMGUI_ENUM_VALUE(ImPlotLegendFlags, None,);
+    IMGUI_ENUM_VALUE(ImPlotLegendFlags, NoButtons,);
+    IMGUI_ENUM_VALUE(ImPlotLegendFlags, NoHighlightItem,);
+    IMGUI_ENUM_VALUE(ImPlotLegendFlags, NoHighlightAxis,);
+    IMGUI_ENUM_VALUE(ImPlotLegendFlags, NoMenus,);
+    IMGUI_ENUM_VALUE(ImPlotLegendFlags, Outside,);
+    IMGUI_ENUM_VALUE(ImPlotLegendFlags, Horizontal,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotMouseTextFlags(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotMouseTextFlags, "Options for mouse hover text (see SetupMouseText)");
-	IMGUI_ENUM_VALUE(ImPlotMouseTextFlags, None,);
-	IMGUI_ENUM_VALUE(ImPlotMouseTextFlags, NoAuxAxes,);
-	IMGUI_ENUM_VALUE(ImPlotMouseTextFlags, NoFormat,);
-	IMGUI_ENUM_VALUE(ImPlotMouseTextFlags, ShowAlways,);
+    IMGUI_ENUM_VALUE(ImPlotMouseTextFlags, None,);
+    IMGUI_ENUM_VALUE(ImPlotMouseTextFlags, NoAuxAxes,);
+    IMGUI_ENUM_VALUE(ImPlotMouseTextFlags, NoFormat,);
+    IMGUI_ENUM_VALUE(ImPlotMouseTextFlags, ShowAlways,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotDragToolFlags(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotDragToolFlags, "Options for DragPoint, DragLine, DragRect");
-	IMGUI_ENUM_VALUE(ImPlotDragToolFlags, None,);
-	IMGUI_ENUM_VALUE(ImPlotDragToolFlags, NoCursors,);
-	IMGUI_ENUM_VALUE(ImPlotDragToolFlags, NoFit,);
-	IMGUI_ENUM_VALUE(ImPlotDragToolFlags, NoInputs,);
-	IMGUI_ENUM_VALUE(ImPlotDragToolFlags, Delayed,);
+    IMGUI_ENUM_VALUE(ImPlotDragToolFlags, None,);
+    IMGUI_ENUM_VALUE(ImPlotDragToolFlags, NoCursors,);
+    IMGUI_ENUM_VALUE(ImPlotDragToolFlags, NoFit,);
+    IMGUI_ENUM_VALUE(ImPlotDragToolFlags, NoInputs,);
+    IMGUI_ENUM_VALUE(ImPlotDragToolFlags, Delayed,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotBarGroupsFlags(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotBarGroupsFlags, "Flags for ImPlot::PlotBarGroups");
-	IMGUI_ENUM_VALUE(ImPlotBarGroupsFlags, None,);
-	IMGUI_ENUM_VALUE(ImPlotBarGroupsFlags, Stacked,);
+    IMGUI_ENUM_VALUE(ImPlotBarGroupsFlags, None,);
+    IMGUI_ENUM_VALUE(ImPlotBarGroupsFlags, Stacked,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotCond(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotCond, "Represents a condition for SetupAxisLimits etc.");
-	IMGUI_ENUM_VALUE(ImPlotCond, None,);
-	IMGUI_ENUM_VALUE(ImPlotCond, Always,);
-	IMGUI_ENUM_VALUE(ImPlotCond, Once,);
+    IMGUI_ENUM_VALUE(ImPlotCond, None,);
+    IMGUI_ENUM_VALUE(ImPlotCond, Always,);
+    IMGUI_ENUM_VALUE(ImPlotCond, Once,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotCol(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotCol, "Plot styling colors.");
-	IMGUI_ENUM_VALUE(ImPlotCol, Line,);
-	IMGUI_ENUM_VALUE(ImPlotCol, Fill,);
-	IMGUI_ENUM_VALUE(ImPlotCol, MarkerOutline,);
-	IMGUI_ENUM_VALUE(ImPlotCol, MarkerFill,);
-	IMGUI_ENUM_VALUE(ImPlotCol, ErrorBar,);
-	IMGUI_ENUM_VALUE(ImPlotCol, FrameBg,);
-	IMGUI_ENUM_VALUE(ImPlotCol, PlotBg,);
-	IMGUI_ENUM_VALUE(ImPlotCol, PlotBorder,);
-	IMGUI_ENUM_VALUE(ImPlotCol, LegendBg,);
-	IMGUI_ENUM_VALUE(ImPlotCol, LegendBorder,);
-	IMGUI_ENUM_VALUE(ImPlotCol, LegendText,);
-	IMGUI_ENUM_VALUE(ImPlotCol, TitleText,);
-	IMGUI_ENUM_VALUE(ImPlotCol, InlayText,);
-	IMGUI_ENUM_VALUE(ImPlotCol, AxisText,);
-	IMGUI_ENUM_VALUE(ImPlotCol, AxisGrid,);
-	IMGUI_ENUM_VALUE(ImPlotCol, AxisTick,);
-	IMGUI_ENUM_VALUE(ImPlotCol, AxisBg,);
-	IMGUI_ENUM_VALUE(ImPlotCol, AxisBgHovered,);
-	IMGUI_ENUM_VALUE(ImPlotCol, AxisBgActive,);
-	IMGUI_ENUM_VALUE(ImPlotCol, Selection,);
-	IMGUI_ENUM_VALUE(ImPlotCol, Crosshairs,);
+    IMGUI_ENUM_VALUE(ImPlotCol, Line,);
+    IMGUI_ENUM_VALUE(ImPlotCol, Fill,);
+    IMGUI_ENUM_VALUE(ImPlotCol, MarkerOutline,);
+    IMGUI_ENUM_VALUE(ImPlotCol, MarkerFill,);
+    IMGUI_ENUM_VALUE(ImPlotCol, ErrorBar,);
+    IMGUI_ENUM_VALUE(ImPlotCol, FrameBg,);
+    IMGUI_ENUM_VALUE(ImPlotCol, PlotBg,);
+    IMGUI_ENUM_VALUE(ImPlotCol, PlotBorder,);
+    IMGUI_ENUM_VALUE(ImPlotCol, LegendBg,);
+    IMGUI_ENUM_VALUE(ImPlotCol, LegendBorder,);
+    IMGUI_ENUM_VALUE(ImPlotCol, LegendText,);
+    IMGUI_ENUM_VALUE(ImPlotCol, TitleText,);
+    IMGUI_ENUM_VALUE(ImPlotCol, InlayText,);
+    IMGUI_ENUM_VALUE(ImPlotCol, AxisText,);
+    IMGUI_ENUM_VALUE(ImPlotCol, AxisGrid,);
+    IMGUI_ENUM_VALUE(ImPlotCol, AxisTick,);
+    IMGUI_ENUM_VALUE(ImPlotCol, AxisBg,);
+    IMGUI_ENUM_VALUE(ImPlotCol, AxisBgHovered,);
+    IMGUI_ENUM_VALUE(ImPlotCol, AxisBgActive,);
+    IMGUI_ENUM_VALUE(ImPlotCol, Selection,);
+    IMGUI_ENUM_VALUE(ImPlotCol, Crosshairs,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotStyleVar(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotStyleVar, "Plot styling variables.");
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, LineWeight,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, Marker,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MarkerSize,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MarkerWeight,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, FillAlpha,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, ErrorBarSize,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, ErrorBarWeight,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, DigitalBitHeight,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, DigitalBitGap,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, PlotBorderSize,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MinorAlpha,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MajorTickLen,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MinorTickLen,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MajorTickSize,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MinorTickSize,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MajorGridSize,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MinorGridSize,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, PlotPadding,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, LabelPadding,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, LegendPadding,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, LegendInnerPadding,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, LegendSpacing,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, MousePosPadding,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, AnnotationPadding,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, FitPadding,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, PlotDefaultSize,);
-	IMGUI_ENUM_VALUE(ImPlotStyleVar, PlotMinSize,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, LineWeight,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, Marker,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MarkerSize,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MarkerWeight,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, FillAlpha,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, ErrorBarSize,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, ErrorBarWeight,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, DigitalBitHeight,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, DigitalBitGap,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, PlotBorderSize,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MinorAlpha,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MajorTickLen,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MinorTickLen,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MajorTickSize,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MinorTickSize,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MajorGridSize,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MinorGridSize,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, PlotPadding,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, LabelPadding,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, LegendPadding,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, LegendInnerPadding,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, LegendSpacing,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, MousePosPadding,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, AnnotationPadding,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, FitPadding,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, PlotDefaultSize,);
+    IMGUI_ENUM_VALUE(ImPlotStyleVar, PlotMinSize,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotMarker(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotMarker, "Marker specifications.");
-	IMGUI_ENUM_VALUE(ImPlotMarker, None,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Circle,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Square,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Diamond,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Up,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Down,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Left,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Right,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Cross,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Plus,);
-	IMGUI_ENUM_VALUE(ImPlotMarker, Asterisk,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, None,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Circle,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Square,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Diamond,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Up,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Down,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Left,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Right,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Cross,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Plus,);
+    IMGUI_ENUM_VALUE(ImPlotMarker, Asterisk,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotColormap(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotColormap, "Built-in colormaps");
-	IMGUI_ENUM_VALUE(ImPlotColormap, Deep,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Dark,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Pastel,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Paired,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Viridis,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Plasma,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Hot,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Cool,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Pink,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Jet,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Twilight,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, RdBu,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, BrBG,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, PiYG,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Spectral,);
-	IMGUI_ENUM_VALUE(ImPlotColormap, Greys,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Deep,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Dark,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Pastel,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Paired,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Viridis,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Plasma,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Hot,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Cool,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Pink,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Jet,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Twilight,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, RdBu,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, BrBG,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, PiYG,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Spectral,);
+    IMGUI_ENUM_VALUE(ImPlotColormap, Greys,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImPlotLocation(FAngelscriptBinds::EOrder::Early, []
 {
 	IMGUI_ENUM(ImPlotLocation, "Used to position items on a plot (e.g. legends, labels, etc.)");
-	IMGUI_ENUM_VALUE(ImPlotLocation, Center,);
-	IMGUI_ENUM_VALUE(ImPlotLocation, North,);
-	IMGUI_ENUM_VALUE(ImPlotLocation, South,);
-	IMGUI_ENUM_VALUE(ImPlotLocation, West,);
-	IMGUI_ENUM_VALUE(ImPlotLocation, East,);
-	IMGUI_ENUM_VALUE(ImPlotLocation, NorthWest,);
-	IMGUI_ENUM_VALUE(ImPlotLocation, NorthEast,);
-	IMGUI_ENUM_VALUE(ImPlotLocation, SouthWest,);
-	IMGUI_ENUM_VALUE(ImPlotLocation, SouthEast,);
+    IMGUI_ENUM_VALUE(ImPlotLocation, Center,);
+    IMGUI_ENUM_VALUE(ImPlotLocation, North,);
+    IMGUI_ENUM_VALUE(ImPlotLocation, South,);
+    IMGUI_ENUM_VALUE(ImPlotLocation, West,);
+    IMGUI_ENUM_VALUE(ImPlotLocation, East,);
+    IMGUI_ENUM_VALUE(ImPlotLocation, NorthWest,);
+    IMGUI_ENUM_VALUE(ImPlotLocation, NorthEast,);
+    IMGUI_ENUM_VALUE(ImPlotLocation, SouthWest,);
+    IMGUI_ENUM_VALUE(ImPlotLocation, SouthEast,);
 });
 
 AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImGui_Plot(FAngelscriptBinds::EOrder::Late, []
@@ -451,22 +454,6 @@ AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBi
 			ImPlot::PlotBars(IMGUI_STRING(Label), &Values[0].X, &Values[0].Y, Values.Num(), BarWidth, 0, sizeof(FVector2D));
 		}
 	});
-	FAngelscriptBinds::BindGlobalFunction("void PlotBarsH(const FString& Label, const TArray<FVector2f> Values, float64 BarHeight = 0.67)",
-	[](const FString& Label, const TArray<FVector2f>& Values, const double BarHeight)
-	{
-		if (!Values.IsEmpty())
-		{
-			ImPlot::PlotBarsH(IMGUI_STRING(Label), &Values[0].X, &Values[0].Y, Values.Num(), BarHeight, 0, sizeof(FVector2f));
-		}
-	});
-	FAngelscriptBinds::BindGlobalFunction("void PlotBarsH(const FString& Label, const TArray<FVector2D> Values, float64 BarHeight = 0.67)",
-	[](const FString& Label, const TArray<FVector2D>& Values, const double BarHeight)
-	{
-		if (!Values.IsEmpty())
-		{
-			ImPlot::PlotBarsH(IMGUI_STRING(Label), &Values[0].X, &Values[0].Y, Values.Num(), BarHeight, 0, sizeof(FVector2D));
-		}
-	});
 	// void PlotBarGroups(const char* const label_ids[], const T* values, int item_count, int group_count, double group_width=0.67, double x0=0, ImPlotBarGroupsFlags flags=ImPlotBarGroupsFlags_None);
 	// void PlotBarGroupsH(const char* const label_ids[], const T* values, int item_count, int group_count, double group_height=0.67, double y0=0, ImPlotBarGroupsFlags flags=ImPlotBarGroupsFlags_None);
 	// void PlotErrorBars(const char* label_id, const T* xs, const T* ys, const T* err, int count, int offset=0, int stride=sizeof(T));
@@ -487,38 +474,6 @@ AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBi
 		if (!Values.IsEmpty())
 		{
 			ImPlot::PlotStems(IMGUI_STRING(Label), &Values[0].X, &Values[0].Y, Values.Num(), BarHeight, 0, sizeof(FVector2D));
-		}
-	});
-	FAngelscriptBinds::BindGlobalFunction("void PlotVLines(const FString& Label, const TArray<float32> Values)",
-	[](const FString& Label, const TArray<float>& Values)
-	{
-		if (!Values.IsEmpty())
-		{
-			ImPlot::PlotVLines(IMGUI_STRING(Label), Values.GetData(), Values.Num(), 0, sizeof(FVector2D));
-		}
-	});
-	FAngelscriptBinds::BindGlobalFunction("void PlotVLines(const FString& Label, const TArray<float64> Values)",
-	[](const FString& Label, const TArray<double>& Values)
-	{
-		if (!Values.IsEmpty())
-		{
-			ImPlot::PlotVLines(IMGUI_STRING(Label), Values.GetData(), Values.Num(), 0, sizeof(double));
-		}
-	});
-	FAngelscriptBinds::BindGlobalFunction("void PlotHLines(const FString& Label, const TArray<float32> Values)",
-	[](const FString& Label, const TArray<float>& Values)
-	{
-		if (!Values.IsEmpty())
-		{
-			ImPlot::PlotHLines(IMGUI_STRING(Label), Values.GetData(), Values.Num(), 0, sizeof(FVector2D));
-		}
-	});
-	FAngelscriptBinds::BindGlobalFunction("void PlotHLines(const FString& Label, const TArray<float64> Values)",
-	[](const FString& Label, const TArray<double>& Values)
-	{
-		if (!Values.IsEmpty())
-		{
-			ImPlot::PlotHLines(IMGUI_STRING(Label), Values.GetData(), Values.Num(), 0, sizeof(double));
 		}
 	});
 	// void PlotPieChart(const char* const label_ids[], const T* values, int count, double x, double y, double radius, bool normalize=false, const char* label_fmt="%.1f", double angle0=90);
@@ -544,7 +499,7 @@ AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImGui_PlotItems(FAngelscriptBi
 	FAngelscriptBinds::BindGlobalFunction("void PlotText(const FString& Text, float64 X, float64 Y, const FVector2D& Offset=FVector2D(0,0), EImPlotTextFlags Flags=0)",
 	[](const FString& Text, const double X, const double Y, const FVector2f& Offset = FVector2f(0, 0), ImPlotTextFlags Flags = 0)
 	{
-		ImPlot::PlotText(IMGUI_STRING(Text), X, Y, Vertical, ToImGui(Offset));
+		ImPlot::PlotText(IMGUI_STRING(Text), X, Y, ToImGui(Offset), Flags);
 	});
 	FAngelscriptBinds::BindGlobalFunction("void PlotDummy(const FString& Label)",
 	[](const FString& Label)
