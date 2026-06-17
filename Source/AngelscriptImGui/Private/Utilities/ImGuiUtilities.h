@@ -1,4 +1,4 @@
-// Copyright Envar Games AB. All Rights Reserved.
+﻿// Copyright Envar Games AB. All Rights Reserved.
 
 #pragma once
 
