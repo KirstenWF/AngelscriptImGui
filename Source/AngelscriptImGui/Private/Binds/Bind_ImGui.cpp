@@ -871,32 +871,32 @@ AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImGui_Text_Widgets(FAngelscrip
 	FAngelscriptBinds::BindGlobalFunction("void Text(const FString& Text)",
 	[](const FString& Text) -> void
 	{
-		ImGui::Text(IMGUI_STRING(Text));
+		ImGui::Text("%s", IMGUI_STRING(Text));
 	});
 	FAngelscriptBinds::BindGlobalFunction("void TextColored(const FColor& Color, const FString& Text)",
 	[](const FColor& Color, const FString& Text) -> void
 	{
-		ImGui::TextColored(ToImGui(Color), IMGUI_STRING(Text));
+		ImGui::TextColored(ToImGui(Color), "%s", IMGUI_STRING(Text));
 	});
 	FAngelscriptBinds::BindGlobalFunction("void TextDisabled(const FString& Text)",
 	[](const FString& Text) -> void
 	{
-		ImGui::TextDisabled(IMGUI_STRING(Text));
+		ImGui::TextDisabled("%s", IMGUI_STRING(Text));
 	});
 	FAngelscriptBinds::BindGlobalFunction("void TextWrapped(const FString& Text)",
 	[](const FString& Text) -> void
 	{
-		ImGui::TextWrapped(IMGUI_STRING(Text));
+		ImGui::TextWrapped("%s", IMGUI_STRING(Text));
 	});
 	FAngelscriptBinds::BindGlobalFunction("void LabelText(const FString& Label, const FString& Text)",
 	[](const FString& Label, const FString& Text) -> void
 	{
-		ImGui::LabelText(IMGUI_STRING(Label), IMGUI_STRING(Text));
+		ImGui::LabelText(IMGUI_STRING(Label), "%s", IMGUI_STRING(Text));
 	});
 	FAngelscriptBinds::BindGlobalFunction("void BulletText(const FString& Text)",
 	[](const FString& Text) -> void
 	{
-		ImGui::BulletText(IMGUI_STRING(Text));
+		ImGui::BulletText("%s", IMGUI_STRING(Text));
 	});
 });
 
@@ -1674,7 +1674,7 @@ AS_FORCE_LINK const FAngelscriptBinds::FBind Bind_ImGui_Tooltips(FAngelscriptBin
 	FAngelscriptBinds::BindGlobalFunction("bool SetTooltip(const FString& Text)",
 	[](const FString& Identifier) -> void
 	{
-		ImGui::SetTooltip(IMGUI_STRING(Identifier));
+		ImGui::SetTooltip("%s", IMGUI_STRING(Identifier));
 	});
 });
 
